@@ -1,4 +1,4 @@
-ame: "hola mundo"
+name: "hola mundo"
 
 on:
   push:
@@ -8,10 +8,4 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-     - run: echo "Hola mundo desde GitHub Actions"
-
-     
-
-    
- 
-        - 
+      - run: echo "Hola mundo desde GitHub Actions"
