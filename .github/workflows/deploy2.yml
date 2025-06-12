@@ -18,6 +18,8 @@ jobs:
         run: ls -al
       - name: concatenado variables
         run: echo "hola mi_var=prueba">> $GITHUB_OUTPUT
+      - name: mostrar variable
+        run: echo $my_var
 
 
  second-job:
