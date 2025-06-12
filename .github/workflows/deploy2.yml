@@ -18,7 +18,7 @@ jobs:
         run: ls -al
       - name: concatenado variables
         id: concatenado
-        run: echo "hola mi_var=prueba">> $GITHUB_OUTPUT
+        run: echo "hola mi_var=prueba" >> $GITHUB_OUTPUT
 
       - name: mostrar variable
         run: echo "La variable mi_var es:${{ steps.concatenado.outputs.mi_var }}"
