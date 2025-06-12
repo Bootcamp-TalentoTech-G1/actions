@@ -8,7 +8,8 @@ jobs:
         run: echo "Hola mundo desde GitHub Actions"
 
  second-job:
-   if: false
+   if: ${{github.ref == 'refs/heads/main'}}
+   # This job will only run if the push is to the main branch
    needs: first-job
    runs-on: ubuntu-latest
 
