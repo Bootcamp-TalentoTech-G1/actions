@@ -9,6 +9,15 @@ jobs:
       - name: hola muundo
         run: echo "Hola mundo desde GitHub Actions ${NAME}"
 
+      - name: working dir
+        run: ls -al
+
+      - name: actions/checkout
+        uses: actions/checkout@v4
+      - name: working dir
+        run: ls -al
+
+
  second-job:
    if: ${{github.ref == 'refs/heads/main'}}
    # This job will only run if the push is to the main branch
