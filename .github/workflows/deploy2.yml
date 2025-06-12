@@ -2,10 +2,12 @@ name: deploy service
 on: push
 jobs:
  first-job:
+    env:
+      NAME: "Ricardo"
     runs-on: ubuntu-latest
     steps:
       - name: hola muundo
-        run: echo "Hola mundo desde GitHub Actions"
+        run: echo "Hola mundo desde GitHub Actions ${NAME}"
 
  second-job:
    if: ${{github.ref == 'refs/heads/main'}}
