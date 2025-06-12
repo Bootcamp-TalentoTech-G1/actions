@@ -23,7 +23,7 @@ jobs:
         run: echo "mi_var=prueba" >> $GITHUB_OUTPUT
 
       - name: mostrar variable
-        run: echo "La variable mi_var es: ${{ steps.concatenado.outputs.mi_var }}"
+        run: echo "La variable mi_var es:${{ steps.concatenado.outputs.mi_var }}"
 
   second-job:
     if: ${{ github.ref == 'refs/heads/main' }}
