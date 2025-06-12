@@ -39,5 +39,5 @@ jobs:
       - name: hola mundo 2
         run: echo "Hola mundo desde GitHub Actions 2"
       - name: mostrar variable de primer job
-        run: echo "La variable mi_var del primer job es: ${{VALOR}}
+        run: echo "La variable mi_var del primer job es:${{VALOR}}
 
