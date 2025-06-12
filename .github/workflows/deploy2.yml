@@ -26,6 +26,16 @@ jobs:
 
       - name: mostrar variable
         run: echo "La variable mi_var es:${{ steps.concatenado.outputs.mi_var }}"
+      
+      - name: Generar Arhivo
+        run: echo "almaceno logs de la ejecucion" > logs.txt
+      
+      - name: subir archivo
+        uses: actions/upload-artifact@v4
+        with:
+          name: logs
+          path: logs.txt
+
 
   second-job:
     if: ${{ github.ref == 'refs/heads/main' }}
