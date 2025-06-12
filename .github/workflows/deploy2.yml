@@ -1,0 +1,8 @@
+name: deploy service
+on: push
+jobs:
+ first-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: hola muundo
+        run: echo "Hola mundo desde GitHub Actions"
