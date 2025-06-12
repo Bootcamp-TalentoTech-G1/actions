@@ -54,7 +54,7 @@ jobs:
     steps:
       - name: descargar archivo
         uses: actions/download-artifact@v4
-        whith:
+        with:
           name: logs
       - name: mostrar archivo
         run: cat logs.txt
