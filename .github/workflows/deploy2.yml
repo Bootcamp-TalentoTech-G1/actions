@@ -1,12 +1,12 @@
 name: deploy service
 on: push
 jobs:
- first-job:
+  first-job:
     env:
       NAME: "Ricardo"
     runs-on: ubuntu-latest
     steps:
-      - name: hola muundo
+      - name: hola mundo
         run: echo "Hola mundo desde GitHub Actions ${NAME}"
 
       - name: working dir
@@ -14,23 +14,22 @@ jobs:
 
       - name: actions/checkout
         uses: actions/checkout@v4
+
       - name: working dir
         run: ls -al
+
       - name: concatenado variables
         id: concatenado
-        run: echo "hola mi_var=prueba" >> $GITHUB_OUTPUT
+        run: echo "mi_var=prueba" >> $GITHUB_OUTPUT
 
       - name: mostrar variable
-        run: echo "La variable mi_var es:${{ steps.concatenado.outputs.mi_var }}"
+        run: echo "La variable mi_var es: ${{ steps.concatenado.outputs.mi_var }}"
 
+  second-job:
+    if: ${{ github.ref == 'refs/heads/main' }}
+    needs: first-job
+    runs-on: ubuntu-latest
+    steps:
+      - name: hola mundo 2
+        run: echo "Hola mundo desde GitHub Actions 2"
 
- second-job:
-   if: ${{github.ref == 'refs/heads/main'}}
-   # This job will only run if the push is to the main branch
-   needs: first-job
-   runs-on: ubuntu-latest
-
-   steps:
-    - name: hola mundo 2
-      run: echo "Hola mundo desde GitHub Actions 2"      
-      
