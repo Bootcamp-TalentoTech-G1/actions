@@ -31,10 +31,13 @@ jobs:
     if: ${{ github.ref == 'refs/heads/main' }}
     needs: first-job
     runs-on: ubuntu-latest
-    
+
+    env:
+      VALOR: "${{ needs.first-job.outputs.mi_var }}"
+
     steps:
       - name: hola mundo 2
         run: echo "Hola mundo desde GitHub Actions 2"
       - name: mostrar variable de primer job
-        run: echo "La variable mi_var del primer job es:${{ needs.first-job.outputs.mi_var }}"
+        run: echo "La variable mi_var del primer job es: ${{VALOR}}
 
