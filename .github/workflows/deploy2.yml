@@ -25,19 +25,17 @@ jobs:
         run: echo "mi_var=prueba" >> $GITHUB_OUTPUT
 
       - name: mostrar variable
-        run: echo "La variable mi_var es:${{ steps.concatenado.outputs.mi_var }}"
+        run: echo "La variable mi_var es: ${{ steps.concatenado.outputs.mi_var }}"
 
   second-job:
     if: ${{ github.ref == 'refs/heads/main' }}
     needs: first-job
     runs-on: ubuntu-latest
-
     env:
-      VALOR: "${{ needs.first-job.outputs.mi_var }}"
-
+      VALOR: ${{ needs.first-job.outputs.mi_var }}
     steps:
       - name: hola mundo 2
         run: echo "Hola mundo desde GitHub Actions 2"
       - name: mostrar variable de primer job
-        run: echo "La variable mi_var del primer job es:${{VALOR}}
+        run: echo "La variable mi_var del primer job es:${{ env.VALOR }}"
 
